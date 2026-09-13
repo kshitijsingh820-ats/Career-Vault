@@ -1,3 +1,4 @@
+
 /* ============================= */
 /* Main Navbar */
 /* ============================= */
@@ -222,41 +223,16 @@
 
 @media (max-width: 700px) {
   .navLinks {
-    width: 94%;
-    min-height: 60px;
+    width: 96%;
+    min-height: 56px;
 
-    gap: 15px;
+    gap: 10px;
   }
 
   .logo {
-    margin-left: 5px;
-    font-size: 19px;
-  }
-
-  .navActions {
-    gap: 7px;
-  }
-
-  .navLink,
-  .createButton,
-  .logoutButton {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-}
-
-
-/* ============================= */
-/* Small Mobile */
-/* ============================= */
-
-@media (max-width: 480px) {
-  .navLinks {
-    width: 95%;
-  }
-
-  .logo {
-    font-size: 18px;
+    margin-left: 2px;
+    font-size: 17px;
+    letter-spacing: -0.4px;
   }
 
   .navActions {
@@ -267,7 +243,67 @@
   .createButton,
   .logoutButton {
     padding: 7px 8px;
-    font-size: 12px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+}
+
+
+/* ============================= */
+/* Small Mobile */
+/* ============================= */
+
+@media (max-width: 480px) {
+  .navLinks {
+    width: 97%;
+    min-height: 54px;
+
+    gap: 7px;
+  }
+
+  .logo {
+    margin-left: 0;
+    font-size: 16px;
+    letter-spacing: -0.4px;
+  }
+
+  .navActions {
+    gap: 4px;
+  }
+
+  .navLink,
+  .createButton,
+  .logoutButton {
+    padding: 6px 7px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+}
+
+
+/* ============================= */
+/* Very Small Mobile */
+/* ============================= */
+
+@media (max-width: 360px) {
+  .navLinks {
+    width: 98%;
+    gap: 5px;
+  }
+
+  .logo {
+    font-size: 15px;
+  }
+
+  .navActions {
+    gap: 3px;
+  }
+
+  .navLink,
+  .createButton,
+  .logoutButton {
+    padding: 6px;
+    font-size: 9px;
   }
 }
 
@@ -291,3 +327,4 @@
     transform: none;
   }
 }
+
