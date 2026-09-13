@@ -1,0 +1,122 @@
+
+import { NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
+import { createClient } from "@supabase/supabase-js";
+import { cookies } from "next/headers";
+import prisma from "../../../lib/prisma";
+
+export async function DELETE() {
+  try {
+    /*
+     * Get the currently logged-in Supabase user
+     */
+    const cookieStore = await cookies();
+
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+      {
+        cookies: {
+          getAll() {
+            return cookieStore.getAll();
+          },
+          setAll(cookiesToSet) {
+            try {
+              cookiesToSet.forEach(({ name, value, options }) => {
+                cookieStore.set(name, value, options);
+              });
+            } catch {
+              // Cookies can be ignored if they cannot be modified
+              // in this route.
+            }
+          },
+        },
+      }
+    );
+
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
+
+    if (userError || !user) {
+      return NextResponse.json(
+        { error: "You must be logged in to delete your account." },
+        { status: 401 }
+      );
+    }
+
+    /*
+     * Create a Supabase Admin client.
+     *
+     * The service role key must NEVER be exposed
+     * to the browser.
+     */
+    const supabaseAdmin = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
+    /*
+     * Find the corresponding CareerVault User record.
+     *
+     * Your Prisma User.id is a CUID, while Supabase Auth
+     * has its own user ID, so we use the authenticated email
+     * to find the application User record.
+     */
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        email: user.email!,
+      },
+    });
+
+    /*
+     * Delete the CareerVault database user.
+     *
+     * Because Resume.user has onDelete: Cascade,
+     * all resumes belonging to this user will also be deleted.
+     */
+    if (existingUser) {
+      await prisma.user.delete({
+        where: {
+          id: existingUser.id,
+        },
+      });
+    }
+
+    /*
+     * Delete the Supabase Authentication account.
+     */
+    const { error: deleteAuthError } =
+      await supabaseAdmin.auth.admin.deleteUser(user.id);
+
+    if (deleteAuthError) {
+      console.error(
+        "Supabase Auth deletion error:",
+        deleteAuthError
+      );
+
+      return NextResponse.json(
+        {
+          error:
+            "Your application data was deleted, but the authentication account could not be deleted. Please contact support.",
+        },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      message: "Account deleted successfully.",
+    });
+  } catch (error) {
+    console.error("Account deletion error:", error);
+
+    return NextResponse.json(
+      {
+        error: "Failed to delete account.",
+      },
+      { status: 500 }
+    );
+  }
+}
+

@@ -1,0 +1,783 @@
+
+.page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* ============================= */
+/* Loading */
+/* ============================= */
+
+.loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f5f7fb;
+  color: #374151;
+
+  font-size: 14px;
+}
+
+/* ============================= */
+/* Main Container */
+/* ============================= */
+
+.container {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+
+  padding: 35px 0 70px;
+}
+
+/* ============================= */
+/* Top Bar */
+/* ============================= */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+/* ============================= */
+/* Back Button */
+/* ============================= */
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #2563eb;
+  color: white;
+
+  padding: 10px 18px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.backButton:hover {
+  transform: scale(1.02);
+
+  background: #1d4ed8;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.backButton:active {
+  transform: scale(0.98);
+}
+
+/* ============================= */
+/* Top Actions */
+/* ============================= */
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ============================= */
+/* Download PDF Button */
+/* ============================= */
+
+.printButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #2563eb;
+  border-radius: 7px;
+
+  background: white;
+  color: #2563eb;
+
+  padding: 10px 16px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.printButton:hover {
+  transform: scale(1.02);
+
+  background: #eff6ff;
+  border-color: #1d4ed8;
+  color: #1d4ed8;
+
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.12);
+}
+
+.printButton:active {
+  transform: scale(0.98);
+}
+
+/* ============================= */
+/* Edit Resume Button */
+/* ============================= */
+
+.editButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #2563eb;
+  border-radius: 7px;
+
+  background: #2563eb;
+  color: white;
+
+  padding: 10px 16px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.editButton:hover {
+  transform: scale(1.02);
+
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.editButton:active {
+  transform: scale(0.98);
+}
+
+/* ============================= */
+/* Resume Paper */
+/* ============================= */
+
+.resumePaper {
+  width: 700px;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  padding: 30px 38px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* Resume Header */
+/* ============================= */
+
+.header {
+  text-align: center;
+
+  margin-bottom: 14px;
+}
+
+.header h1 {
+  margin: 0 0 3px;
+
+  color: #111827;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.professionalTitle {
+  margin: 0 0 6px;
+
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.4;
+}
+
+/* ============================= */
+/* Contact Information */
+/* ============================= */
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 3px 10px;
+
+  color: #4b5563;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.contactInfo span:not(:last-child)::after {
+  content: "•";
+
+  margin-left: 10px;
+
+  color: #9ca3af;
+}
+
+/* ============================= */
+/* Resume Sections */
+/* ============================= */
+
+.section {
+  margin-top: 13px;
+}
+
+.section h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+.sectionLine {
+  width: 100%;
+
+  height: 1px;
+
+  margin: 3px 0 6px;
+
+  background: #d1d5db;
+}
+
+/* ============================= */
+/* Summary */
+/* ============================= */
+
+.summary {
+  margin: 0;
+
+  color: #374151;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* ============================= */
+/* Education */
+/* ============================= */
+
+.educationItem {
+  margin-bottom: 7px;
+}
+
+.educationItem:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* Item Header */
+/* ============================= */
+
+.itemHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.itemHeader h3 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 10.5px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.subText {
+  margin: 1px 0 0;
+
+  color: #374151;
+
+  font-size: 9.5px;
+  line-height: 1.35;
+}
+
+.rightText {
+  flex-shrink: 0;
+
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  text-align: right;
+
+  white-space: nowrap;
+}
+
+.rightText p {
+  margin: 0;
+}
+
+/* ============================= */
+/* Skills */
+/* ============================= */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.skills p {
+  margin: 0;
+
+  color: #374151;
+
+  font-size: 9.5px;
+  line-height: 1.4;
+}
+
+.skills strong {
+  color: #111827;
+
+  font-weight: 700;
+}
+
+/* ============================= */
+/* Experience */
+/* ============================= */
+
+.experienceItem {
+  margin-bottom: 8px;
+}
+
+.experienceItem:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* Description */
+/* ============================= */
+
+.description {
+  margin-top: 3px;
+}
+
+.description p {
+  margin: 0 0 2px;
+
+  color: #374151;
+
+  font-size: 9.5px;
+  line-height: 1.4;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* Projects */
+/* ============================= */
+
+.projectItem {
+  margin-bottom: 8px;
+}
+
+.projectItem:last-child {
+  margin-bottom: 0;
+}
+
+.projectTitle {
+  color: #111827;
+
+  font-size: 10.5px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.projectTitle span {
+  color: #4b5563;
+
+  font-size: 9.5px;
+  font-weight: 500;
+}
+
+/* ============================= */
+/* Lists */
+/* ============================= */
+
+.list {
+  margin: 3px 0 0;
+
+  padding-left: 17px;
+}
+
+.list li {
+  margin-bottom: 2px;
+
+  color: #374151;
+
+  font-size: 9.5px;
+  line-height: 1.4;
+}
+
+.list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* Updated Text */
+/* ============================= */
+
+.updated {
+  margin-top: 14px;
+
+  color: #9ca3af;
+
+  font-size: 9px;
+
+  text-align: right;
+}
+
+/* ============================= */
+/* Mobile */
+/* ============================= */
+
+@media (max-width: 750px) {
+  .container {
+    width: 94%;
+
+    padding: 25px 0 50px;
+  }
+
+  .topBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topActions {
+    width: 100%;
+  }
+
+  .backButton {
+    width: 100%;
+  }
+
+  .printButton,
+  .editButton {
+    flex: 1;
+  }
+
+  .resumePaper {
+    width: 100%;
+
+    padding: 22px 20px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .itemHeader {
+    flex-direction: column;
+
+    gap: 2px;
+  }
+
+  .rightText {
+    text-align: left;
+    white-space: normal;
+  }
+
+  .contactInfo {
+    gap: 3px 7px;
+  }
+
+  .contactInfo span:not(:last-child)::after {
+    margin-left: 7px;
+  }
+}
+
+/* ============================= */
+/* Print / Download PDF */
+/* ============================= */
+
+@media print {
+  /* A4 paper */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Preserve colors, lines and visual elements */
+  html,
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+
+    background: white !important;
+  }
+
+  /* Hide Navbar */
+  .page :global(nav) {
+    display: none !important;
+  }
+
+  /* Hide buttons */
+  .topBar {
+    display: none !important;
+  }
+
+  /* Remove webpage background */
+  .page {
+    min-height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    background: white !important;
+
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Remove webpage spacing */
+  .container {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Printable resume */
+  .resumePaper {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    /*
+      Slightly more vertical spacing so the
+      resume uses more of the A4 page.
+    */
+    padding: 30px 38px;
+
+    box-sizing: border-box;
+
+    background: white !important;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Header spacing */
+  .header {
+    margin-bottom: 16px;
+  }
+
+  /* Section spacing */
+  .section {
+    margin-top: 15px;
+  }
+
+  /* Keep section separation lines visible */
+  .sectionLine {
+    display: block !important;
+
+    width: 100%;
+    height: 1px;
+
+    margin: 4px 0 7px;
+
+    background: #d1d5db !important;
+
+    border: none;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Education spacing */
+  .educationItem {
+    margin-bottom: 8px;
+  }
+
+  /* Experience and project spacing */
+  .experienceItem,
+  .projectItem {
+    margin-bottom: 9px;
+  }
+
+  /* Description spacing */
+  .description {
+    margin-top: 4px;
+  }
+
+  .description p {
+    display: block !important;
+
+    margin-bottom: 2px;
+
+    color: #374151 !important;
+
+    font-size: 9.5px;
+
+    line-height: 1.45;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .description p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Skills spacing */
+  .skills {
+    gap: 3px;
+  }
+
+  .skills p {
+    line-height: 1.45;
+  }
+
+  /* Keep list bullets visible */
+  .list {
+    display: block !important;
+
+    margin-top: 4px;
+
+    color: #374151 !important;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .list li {
+    display: list-item !important;
+
+    margin-bottom: 2px;
+
+    color: #374151 !important;
+
+    line-height: 1.45;
+
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .list li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Resume text */
+  .header h1,
+  .professionalTitle,
+  .contactInfo,
+  .section h2,
+  .summary,
+  .itemHeader h3,
+  .subText,
+  .rightText,
+  .skills p,
+  .skills strong,
+  .projectTitle,
+  .projectTitle span {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide last updated date */
+  .updated {
+    display: none !important;
+  }
+
+  /* Prevent awkward page breaks */
+  .section,
+  .educationItem,
+  .experienceItem,
+  .projectItem {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ============================= */
+/* Reduced Motion Accessibility */
+/* ============================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .backButton,
+  .printButton,
+  .editButton {
+    transition: none;
+  }
+
+  .backButton:hover,
+  .printButton:hover,
+  .editButton:hover {
+    transform: none;
+  }
+}
+
